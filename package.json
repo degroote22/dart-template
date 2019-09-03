@@ -1,0 +1,35 @@
+{
+  "name": "dart-template",
+  "version": "0.0.34",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "gen": "gql-gen --template \"./dist/index.js\" --skip-schema --schema \"./src/test/schemas/mine.json\" --out ./generated/ \"./src/test/**/*.dart\"",
+    "test": "jest",
+    "dl": "get-graphql-schema http://localhost:4000 --json > ./src/test/schemas/mine.json"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.9.2",
+    "graphql-code-generator-dart": "^0.11.1",
+    "jest": "^23.5.0",
+    "ts-jest": "^23.1.4",
+    "get-graphql-schema": "^2.1.2",
+    "typescript": "^3.0.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

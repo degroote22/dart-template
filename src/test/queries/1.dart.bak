@@ -1,0 +1,15 @@
+String gql(String input) => input;
+
+String readRepositories = gql("""
+  query ReadRepositories(\$last: Int) {
+    viewer {
+      repositories(last: \$last) {
+        nodes {
+          id
+          name
+          viewerHasStarred
+        }
+      }
+    }
+  }
+""").replaceAll('\n', ' ');
